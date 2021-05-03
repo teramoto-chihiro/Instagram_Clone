@@ -1,5 +1,4 @@
-
-// Place all the styles related to the pictures controller here.
+// Place all the styles related to the Pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -9,33 +8,12 @@ p, ol, ul, td {
   line-height: 18px;
 }
 
-.container {
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  min-height: 100%;
-  padding: 0;
-  background-color: blackl;
-}
-
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
 
-a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
 th {
   padding-bottom: 5px;
 }
@@ -73,6 +51,12 @@ td {
   }
 }
 
+.picture_content {
+  border-width: thick;
+  border-style: groove;
+  width: 40%;
+}
+
 label {
   display: block;
 }
@@ -89,7 +73,7 @@ label {
 .button {
   width: 150px;
   height: 20px;
-  background-color: #4169E1;
+  background-color: #FFB6C1;
   border: #000;
   text-align:center;
   color: #fff;

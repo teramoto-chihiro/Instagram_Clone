@@ -9,3 +9,5 @@
 <%= link_to 'Post', new_picture_path %>
 <br>
 <%= link_to 'プロフィールの編集', edit_user_path(current_user.id)%>
+<br>
+<%= link_to 'お気に入り一覧', favorite_path(current_user.id)%>

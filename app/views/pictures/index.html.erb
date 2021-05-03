@@ -1,30 +1,36 @@
 <h1>Home</h1>
 
-<table>
-  <% @pictures.each do |picture| %>
-    <tbody>
-      <tr>
-        <td><%= picture.user.name %></td>
-      </tr>
-      <tr>
-        <td><%= picture.content %></td>
-      </tr>
-      <tr>
-        <td><%= image_tag(picture.image.url) %></td>
-      </tr>
-    </tbody>
-    <tfooter>
-      <tr>
-        <td>
-          <%= link_to 'Show', picture %>
-          <% if picture.user.id == current_user.id %>
-            <%= link_to 'Edit', edit_picture_path(picture) %>
-            <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </td>
-      </tr>
-    </tfooter>
+<div class="picture_content">
 
-  <% end %>
-</table>
+  <table>
+    <% @pictures.each do |picture| %>
+
+      <tbody>
+        <tr>
+          <td><%= picture.user.name %></td>
+        </tr>
+        <tr>
+          <td><%= picture.content %></td>
+        </tr>
+        <tr>
+          <td><%= image_tag(picture.image.to_s) %></td>
+        </tr>
+      </tbody>
+
+      <tfooter>
+        <tr>
+          <td>
+            <%= link_to 'Show', picture %>
+            <% if picture.user.id == current_user.id %>
+              <%= link_to 'Edit', edit_picture_path(picture) %>
+              <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </td>
+        </tr>
+      </tfooter>
+
+    <% end %>
+  </table>
+</div>
+
 <%= link_to '投稿する', new_picture_path %>

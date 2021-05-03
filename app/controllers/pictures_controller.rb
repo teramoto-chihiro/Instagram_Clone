@@ -7,7 +7,9 @@ class PicturesController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
+
   def new
     if params[:back]
       @picture = Picture.new(picture_params)
@@ -21,20 +23,18 @@ class PicturesController < ApplicationController
 
   def create
     @picture = current_user.pictures.build(picture_params)
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
-        format.json { render :show, status: :created, location: @picture }
-      else
-        format.html { render :new }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
+    if @picture.save
+      ContactMailer.contact_mail(@picture).deliver
+      redirect_to @picture, notice: 'Picture page was successfully created.'
+    else
+      render :new
     end
   end
+
   def update
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
+        format.html { redirect_to @picture, notice: 'Picture page was successfully updated.' }
         format.json { render :show, status: :ok, location: @picture }
       else
         format.html { render :edit }
@@ -46,14 +46,16 @@ class PicturesController < ApplicationController
   def destroy
     @picture.destroy
     respond_to do |format|
-      format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
+      format.html { redirect_to pictures_url, notice: 'Picture page was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
   def confirm
     @picture = current_user.pictures.build(picture_params)
     render :new if @picture.invalid?
   end
+
   private
 
   def set_picture
@@ -67,7 +69,8 @@ class PicturesController < ApplicationController
       redirect_to pictures_url
     end
   end
- def picture_params
+
+  def picture_params
     params.require(:picture).permit(:content, :image, :image_cache)
   end
 end

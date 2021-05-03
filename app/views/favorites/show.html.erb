@@ -1,0 +1,21 @@
+<h1><%= @user.name %>のお気に入り一覧</h1>
+<table>
+<% @favorites.each do |favorite| %>
+  <tbody>
+    <tr>
+      <td><%= favorite.user.name %></td>
+    </tr>
+    <tr>
+      <td><%= favorite.picture.content %></td>
+    </tr>
+    <tr>
+      <td><%= image_tag(favorite.picture.image.url) %></td>
+    </tr>
+  </tbody>
+  <tfooter>
+    <tr>
+      <td><%= link_to 'お気に入り解除する', favorite_path(id: favorite.id), method: :delete, class: 'btn btn-danger' %></td>
+    </tr>
+  </tfooter>
+<% end %>
+</table>

@@ -1,6 +1,7 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -11,19 +12,6 @@ pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
-}
-
-a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 th {
@@ -56,6 +44,7 @@ td {
     background-color: #c00;
     color: #fff;
   }
+
   ul li {
     font-size: 12px;
     list-style: square;
@@ -79,8 +68,8 @@ label {
 .button {
   width: 150px;
   height: 20px;
-  background-color: #4169E1;
-  border: #000;
+  background-color: rgb(235, 169, 8);
+  border: #ed1818;
   text-align:center;
   color: #fff;
   margin: 10px;
