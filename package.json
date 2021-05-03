@@ -1,0 +1,8 @@
+{
+  "name": "fb_app_clone",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3",
+    "jquery": "^3.6.0"
+  }
+}

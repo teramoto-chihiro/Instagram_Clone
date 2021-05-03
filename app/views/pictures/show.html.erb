@@ -1,0 +1,14 @@
+<p>
+<strong>Content:</strong>
+<%= @picture.content %>
+</p>
+<br>
+<p>
+<strong>Image:</strong>
+<%= image_tag @picture.image.url %>
+</p>
+<br>
+<div class="link_button1">
+<%= link_to 'Edit', edit_picture_path(@picture) %>
+<%= link_to 'Home', pictures_path %>
+</div>
